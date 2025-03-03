@@ -49,6 +49,17 @@
                                 Gestionar Usuarios
                             </a>
                         @endif
+
+                        @if(auth()->user()->is_active)
+                            <a href="{{ route('posts.create') }}" 
+                                class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                                </svg>
+                                Crear Post
+                            </a>
+                        @endif
+
                         <!-- Usuario autenticado -->
                         <div class="flex items-center space-x-4">
                             <span class="text-gray-300 flex items-center">
@@ -79,7 +90,7 @@
                             Register
                         </a>
                     @endauth
-                </div>
+</div>
             </div>
         </div>
     </nav>

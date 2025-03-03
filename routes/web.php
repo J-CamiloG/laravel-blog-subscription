@@ -5,6 +5,7 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Login;
 use App\Livewire\Posts\PostList;
 use App\Livewire\Admin\UserManagement;
+use App\Livewire\Posts\CreatePost;
 
 
 
@@ -27,5 +28,11 @@ Route::post('/logout', function () {
 Route::middleware(['auth'])->group(function () {
     Route::middleware([\App\Http\Middleware\AdminMiddleware::class])->group(function () {
         Route::get('/admin/users', UserManagement::class)->name('admin.users');
+    });
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::middleware([\App\Http\Middleware\ActiveUserMiddleware::class])->group(function () {
+        Route::get('/posts/create', CreatePost::class)->name('posts.create');
     });
 });
