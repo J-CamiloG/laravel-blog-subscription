@@ -40,9 +40,15 @@
                     </div>
                 </div>
 
-                <!-- autentificacion -->
-                <div class="flex items-center space-x-4">
+                <!-- Menú de navegación -->
+                <div class="flex items-center">
                     @auth
+                        @if(auth()->user()->hasRole('admin'))
+                            <a href="{{ route('admin.users') }}" 
+                                class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4">
+                                Gestionar Usuarios
+                            </a>
+                        @endif
                         <!-- Usuario autenticado -->
                         <div class="flex items-center space-x-4">
                             <span class="text-gray-300 flex items-center">
@@ -65,11 +71,11 @@
                     @else
                         <!-- Usuario no autenticado -->
                         <a href="{{ route('login') }}" 
-                        class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg">
+                            class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg">
                             Login
                         </a>
                         <a href="{{ route('register') }}" 
-                        class="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition duration-150 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 shadow-lg shadow-blue-500/25">
+                            class="ml-4 px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition duration-150 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 shadow-lg shadow-blue-500/25">
                             Register
                         </a>
                     @endauth
