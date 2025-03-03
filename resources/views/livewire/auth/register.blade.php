@@ -1,4 +1,4 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+<div class=" flex items-center justify-center bg-gray-900  px-4 sm:px-6 lg:px-8">
     <div class="max-w-xl w-full space-y-8 bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
         <div class="px-8 py-10 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700">
             <h2 class="text-center text-4xl font-bold tracking-tight text-white">

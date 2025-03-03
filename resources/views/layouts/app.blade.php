@@ -42,21 +42,44 @@
 
                 <!-- autentificacion -->
                 <div class="flex items-center space-x-4">
-                    <a href="{{ route('login') }}" 
-                       class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg">
-                        Login
-                    </a>
-                    <a href="{{ route('register') }}" 
-                       class="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition duration-150 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 shadow-lg shadow-blue-500/25">
-                        Register
-                    </a>
+                    @auth
+                        <!-- Usuario autenticado -->
+                        <div class="flex items-center space-x-4">
+                            <span class="text-gray-300 flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                {{ auth()->user()->name }}
+                            </span>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" 
+                                    class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd" />
+                                    </svg>
+                                    Cerrar sesión
+                                </button>
+                            </form>
+                        </div>
+                    @else
+                        <!-- Usuario no autenticado -->
+                        <a href="{{ route('login') }}" 
+                        class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg">
+                            Login
+                        </a>
+                        <a href="{{ route('register') }}" 
+                        class="px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition duration-150 ease-in-out transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 shadow-lg shadow-blue-500/25">
+                            Register
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- main -->
-    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+    <main class="flex-grow py-4 px-4 sm:px-6 lg:px-8">
         {{ $slot }}
     </main>
 
