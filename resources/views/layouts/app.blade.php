@@ -26,29 +26,21 @@
                         </a>
                     </div>
 
-                    <!-- Navegation -->
-                    <div class="hidden md:flex md:ml-10 md:space-x-8">
-                        <a href="#" class="text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
-                            Inicio
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
-                            Publicaciones
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">
-                            Categorias
-                        </a>
-                    </div>
                 </div>
 
                 <!-- Menú de navegación -->
                 <div class="flex items-center">
                     @auth
-                        @if(auth()->user()->hasRole('admin'))
-                            <a href="{{ route('admin.users') }}" 
-                                class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4">
-                                Gestionar Usuarios
-                            </a>
-                        @endif
+                    @if(auth()->user()->hasRole('admin'))
+                        <a href="{{ route('admin.users') }}" 
+                            class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4">
+                            Gestionar Usuarios
+                        </a>
+                        <a href="{{ route('admin.posts') }}" 
+                            class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4">
+                            Gestionar Posts
+                        </a>
+                    @endif
 
                         @if(auth()->user()->is_active)
                             <a href="{{ route('posts.create') }}" 
