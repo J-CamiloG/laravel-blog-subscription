@@ -33,8 +33,11 @@ class CreatePost extends Component
             'title' => $this->title,
             'description' => $this->description,
             'user_id' => auth()->id(),
-            'published_at' => $now 
+            'published_at' => $now
         ]);
+
+        //  actualizar la lista de posts
+        $this->dispatch('postCreated');
 
         session()->flash('message', 'Post creado correctamente.');
         

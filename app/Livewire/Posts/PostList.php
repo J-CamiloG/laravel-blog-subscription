@@ -6,14 +6,26 @@ use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
 
 class PostList extends Component
 {
     use WithPagination;
 
-    public $search = '';
     public $dateFrom = '';
     public $dateTo = '';
+
+    protected $queryString = [
+        'dateFrom' => ['except' => ''],
+        'dateTo' => ['except' => ''],
+    ];
+
+    #[On('postCreated')]
+    public function refreshPosts()
+    {
+        // actualizar cuando crea
+        $this->resetPage();
+    }
 
     public function deletePost($postId)
     {
@@ -46,6 +58,6 @@ class PostList extends Component
         return view('livewire.posts.post-list', [
             'posts' => $posts,
             'isAdmin' => Auth::check() && Auth::user()->hasRole('admin')
-        ])->layout('layouts.app'); // Especificamos el layout correcto
+        ])->layout('layouts.app');
     }
 }
