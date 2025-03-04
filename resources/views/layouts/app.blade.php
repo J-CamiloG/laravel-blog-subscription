@@ -41,6 +41,11 @@
                             Gestionar Posts
                         </a>
                     @endif
+                    <!-- Enlace a Productos API -->
+                    <a href="{{ route('api.products.index') }}" 
+                    class="text-gray-300 hover:text-white px-4 py-2 text-sm font-medium transition duration-150 ease-in-out hover:bg-gray-700 rounded-lg mr-4">
+                    Productos API
+                    </a>
 
                         @if(auth()->user()->is_active)
                             <a href="{{ route('posts.create') }}" 
@@ -89,7 +94,11 @@
 
     <!-- main -->
     <main class="flex-grow py-4 px-4 sm:px-6 lg:px-8">
+    @hasSection('content')
+        @yield('content')
+    @else
         {{ $slot }}
+    @endif
     </main>
 
     <!-- Footer -->

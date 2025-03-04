@@ -39,3 +39,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/posts/create', CreatePost::class)->name('posts.create');
     });
 });
+
+
+Route::prefix('api-products')->group(function () {
+    Route::get('/', [App\Http\Controllers\Api\ProductController::class, 'index'])->name('api.products.index');
+    Route::get('/create', [App\Http\Controllers\Api\ProductController::class, 'create'])->name('api.products.create');
+    Route::post('/', [App\Http\Controllers\Api\ProductController::class, 'store'])->name('api.products.store');
+    Route::get('/{id}', [App\Http\Controllers\Api\ProductController::class, 'show'])->name('api.products.show');
+    Route::get('/{id}/edit', [App\Http\Controllers\Api\ProductController::class, 'edit'])->name('api.products.edit');
+    Route::put('/{id}', [App\Http\Controllers\Api\ProductController::class, 'update'])->name('api.products.update');
+    Route::delete('/{id}', [App\Http\Controllers\Api\ProductController::class, 'destroy'])->name('api.products.destroy');
+});
