@@ -12,6 +12,25 @@
 - **Spatie Laravel Permission**  
 - **Laravel Sanctum**  
 
+### Patrones de Diseño Implementados
+
+1. **MVC (Modelo-Vista-Controlador)**: Separación de la lógica de negocio, presentación y control
+2. **Repository Pattern**: Abstracción del acceso a datos para desacoplar la lógica de negocio
+3. **Service Layer**: Encapsulamiento de la lógica de negocio compleja
+4. **Observer Pattern**: Implementado a través del sistema de eventos de Laravel
+5. **Middleware**: Filtrado y transformación de solicitudes HTTP
+6. **Factory Pattern**: Creación de objetos complejos (usado en seeders y tests)
+
+
+
+### Base de Datos
+
+La base de datos MySQL está alojada en Clever Cloud, proporcionando:
+- Alta disponibilidad y escalabilidad
+- Backups automáticos
+- Monitoreo de rendimiento
+- Conexión segura mediante SSL
+
 ### Características Principales
 
 - **🛡️ Sistema de Autenticación** - Registro e inicio de sesión de usuarios  
@@ -72,11 +91,13 @@ DB_DATABASE=laravel_blog
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-10. **Compilar los assets**
+
+10. **En una ventana de la terminal de tu editor de codigo Compilar los assets**
 ```bash
 npm run dev
 ```
-11. **Iniciar el servidor de desarrollo**
+
+11. **En otra ventada de la terminal de tu editor Iniciar el servidor de desarrollo**
 ```bash
 php artisan serve
 ```
@@ -124,6 +145,15 @@ php artisan serve
 5. Los posts se actualizan automáticamente para todos los usuarios
 6. Los administradores pueden eliminar posts
 7. Todos los usuarios pueden interactuar con el módulo de API
+
+### Flujo de Datos
+
+1. El usuario interactúa con la interfaz (componentes Livewire)
+2. Livewire maneja las interacciones y se comunica con el servidor
+3. Los controladores y servicios procesan las solicitudes
+4. Los modelos interactúan con la base de datos a través de Eloquent ORM
+5. Los resultados se devuelven a los componentes Livewire
+6. La interfaz se actualiza en tiempo real sin recargar la página
 
 
 ## Pruebas
