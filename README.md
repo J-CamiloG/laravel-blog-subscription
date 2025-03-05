@@ -60,10 +60,11 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
-**Luego deberas abrir la carpeta en tu editor de codigo, buscar el archivo .env,  buscar las siguientes variables y cambiarlas con las que se enviaron al correo**
 
 9. **Configurar la base de datos con las variables que fueron enviadas al correo**
 ```bash
+ deberas abrir la carpeta en tu editor de codigo, buscar el archivo .env,  buscar las siguientes variables y cambiarlas con las que se enviaron al corre
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
