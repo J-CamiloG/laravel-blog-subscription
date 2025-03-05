@@ -41,9 +41,9 @@
 git clone https://github.com/J-CamiloG/laravel-blog-subscription.git
 ```
 4. **Entra a la carpeta del proyecto**
-    ```bash
-    cd laravel-blog-subscription
-    ```
+```bash
+cd laravel-blog-subscription
+```
 5. **Instalar dependencias de PHP**
 ```bash
 composer install
@@ -60,6 +60,8 @@ cp .env.example .env
 ```bash
 php artisan key:generate
 ```
+**Luego deberas abrir la carpeta en tu editor de codigo, buscar el archivo .env,  buscar las siguientes variables y cambiarlas con las que se enviaron al correo**
+
 9. **Configurar la base de datos con las variables que fueron enviadas al correo**
 ```bash
 DB_CONNECTION=mysql
