@@ -35,10 +35,10 @@
 ## Instalación
 
 1. **Crear una carpeta en el escritorio de tu pc** ✅
-2. **Abre la terminar en la carpeta creada** ✅
+2. **Abre la terminal en la carpeta creada** ✅
 3. **Clona el repositorio**
 ```bash
-git clone https://github.com/tu-usuario/laravel-blog-subscription.git
+git clone https://github.com/J-CamiloG/laravel-blog-subscription.git
 ```
 4. **Entra a la carpeta del proyecto**
     ```bash
